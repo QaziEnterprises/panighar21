@@ -18,6 +18,12 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "PaniGhar Water Care - Qazi Enterprises" },
       { name: "description", content: "Business management system for Qazi Enterprises - PaniGhar Water Care" },
+      { property: "og:title", content: "PaniGhar Water Care - Qazi Enterprises" },
+      { name: "twitter:title", content: "PaniGhar Water Care - Qazi Enterprises" },
+      { property: "og:description", content: "Business management system for Qazi Enterprises - PaniGhar Water Care" },
+      { name: "twitter:description", content: "Business management system for Qazi Enterprises - PaniGhar Water Care" },
+      { name: "twitter:card", content: "summary" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
