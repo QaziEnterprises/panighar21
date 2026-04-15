@@ -9,8 +9,128 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SummaryRouteImport } from './routes/summary'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as PurchasesRouteImport } from './routes/purchases'
+import { Route as ProfitRouteImport } from './routes/profit'
+import { Route as ProductsDbRouteImport } from './routes/products-db'
+import { Route as PriceListRouteImport } from './routes/price-list'
+import { Route as PosRouteImport } from './routes/pos'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as LedgerRouteImport } from './routes/ledger'
+import { Route as InventoryRouteImport } from './routes/inventory'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as ExpensesRouteImport } from './routes/expenses'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ContactsRouteImport } from './routes/contacts'
+import { Route as BillsRouteImport } from './routes/bills'
+import { Route as BackupRouteImport } from './routes/backup'
+import { Route as AuditRouteImport } from './routes/audit'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SummaryRoute = SummaryRouteImport.update({
+  id: '/summary',
+  path: '/summary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PurchasesRoute = PurchasesRouteImport.update({
+  id: '/purchases',
+  path: '/purchases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfitRoute = ProfitRouteImport.update({
+  id: '/profit',
+  path: '/profit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsDbRoute = ProductsDbRouteImport.update({
+  id: '/products-db',
+  path: '/products-db',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PriceListRoute = PriceListRouteImport.update({
+  id: '/price-list',
+  path: '/price-list',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PosRoute = PosRouteImport.update({
+  id: '/pos',
+  path: '/pos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LedgerRoute = LedgerRouteImport.update({
+  id: '/ledger',
+  path: '/ledger',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InventoryRoute = InventoryRouteImport.update({
+  id: '/inventory',
+  path: '/inventory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpensesRoute = ExpensesRouteImport.update({
+  id: '/expenses',
+  path: '/expenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactsRoute = ContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BillsRoute = BillsRouteImport.update({
+  id: '/bills',
+  path: '/bills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BackupRoute = BackupRouteImport.update({
+  id: '/backup',
+  path: '/backup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +139,312 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/audit': typeof AuditRoute
+  '/backup': typeof BackupRoute
+  '/bills': typeof BillsRoute
+  '/contacts': typeof ContactsRoute
+  '/dashboard': typeof DashboardRoute
+  '/expenses': typeof ExpensesRoute
+  '/home': typeof HomeRoute
+  '/inventory': typeof InventoryRoute
+  '/ledger': typeof LedgerRoute
+  '/login': typeof LoginRoute
+  '/pos': typeof PosRoute
+  '/price-list': typeof PriceListRoute
+  '/products-db': typeof ProductsDbRoute
+  '/profit': typeof ProfitRoute
+  '/purchases': typeof PurchasesRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/settings': typeof SettingsRoute
+  '/summary': typeof SummaryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/audit': typeof AuditRoute
+  '/backup': typeof BackupRoute
+  '/bills': typeof BillsRoute
+  '/contacts': typeof ContactsRoute
+  '/dashboard': typeof DashboardRoute
+  '/expenses': typeof ExpensesRoute
+  '/home': typeof HomeRoute
+  '/inventory': typeof InventoryRoute
+  '/ledger': typeof LedgerRoute
+  '/login': typeof LoginRoute
+  '/pos': typeof PosRoute
+  '/price-list': typeof PriceListRoute
+  '/products-db': typeof ProductsDbRoute
+  '/profit': typeof ProfitRoute
+  '/purchases': typeof PurchasesRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/settings': typeof SettingsRoute
+  '/summary': typeof SummaryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/audit': typeof AuditRoute
+  '/backup': typeof BackupRoute
+  '/bills': typeof BillsRoute
+  '/contacts': typeof ContactsRoute
+  '/dashboard': typeof DashboardRoute
+  '/expenses': typeof ExpensesRoute
+  '/home': typeof HomeRoute
+  '/inventory': typeof InventoryRoute
+  '/ledger': typeof LedgerRoute
+  '/login': typeof LoginRoute
+  '/pos': typeof PosRoute
+  '/price-list': typeof PriceListRoute
+  '/products-db': typeof ProductsDbRoute
+  '/profit': typeof ProfitRoute
+  '/purchases': typeof PurchasesRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/settings': typeof SettingsRoute
+  '/summary': typeof SummaryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/audit'
+    | '/backup'
+    | '/bills'
+    | '/contacts'
+    | '/dashboard'
+    | '/expenses'
+    | '/home'
+    | '/inventory'
+    | '/ledger'
+    | '/login'
+    | '/pos'
+    | '/price-list'
+    | '/products-db'
+    | '/profit'
+    | '/purchases'
+    | '/reports'
+    | '/reset-password'
+    | '/settings'
+    | '/summary'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/audit'
+    | '/backup'
+    | '/bills'
+    | '/contacts'
+    | '/dashboard'
+    | '/expenses'
+    | '/home'
+    | '/inventory'
+    | '/ledger'
+    | '/login'
+    | '/pos'
+    | '/price-list'
+    | '/products-db'
+    | '/profit'
+    | '/purchases'
+    | '/reports'
+    | '/reset-password'
+    | '/settings'
+    | '/summary'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/audit'
+    | '/backup'
+    | '/bills'
+    | '/contacts'
+    | '/dashboard'
+    | '/expenses'
+    | '/home'
+    | '/inventory'
+    | '/ledger'
+    | '/login'
+    | '/pos'
+    | '/price-list'
+    | '/products-db'
+    | '/profit'
+    | '/purchases'
+    | '/reports'
+    | '/reset-password'
+    | '/settings'
+    | '/summary'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AuditRoute: typeof AuditRoute
+  BackupRoute: typeof BackupRoute
+  BillsRoute: typeof BillsRoute
+  ContactsRoute: typeof ContactsRoute
+  DashboardRoute: typeof DashboardRoute
+  ExpensesRoute: typeof ExpensesRoute
+  HomeRoute: typeof HomeRoute
+  InventoryRoute: typeof InventoryRoute
+  LedgerRoute: typeof LedgerRoute
+  LoginRoute: typeof LoginRoute
+  PosRoute: typeof PosRoute
+  PriceListRoute: typeof PriceListRoute
+  ProductsDbRoute: typeof ProductsDbRoute
+  ProfitRoute: typeof ProfitRoute
+  PurchasesRoute: typeof PurchasesRoute
+  ReportsRoute: typeof ReportsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SettingsRoute: typeof SettingsRoute
+  SummaryRoute: typeof SummaryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/summary': {
+      id: '/summary'
+      path: '/summary'
+      fullPath: '/summary'
+      preLoaderRoute: typeof SummaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/purchases': {
+      id: '/purchases'
+      path: '/purchases'
+      fullPath: '/purchases'
+      preLoaderRoute: typeof PurchasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profit': {
+      id: '/profit'
+      path: '/profit'
+      fullPath: '/profit'
+      preLoaderRoute: typeof ProfitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products-db': {
+      id: '/products-db'
+      path: '/products-db'
+      fullPath: '/products-db'
+      preLoaderRoute: typeof ProductsDbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/price-list': {
+      id: '/price-list'
+      path: '/price-list'
+      fullPath: '/price-list'
+      preLoaderRoute: typeof PriceListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pos': {
+      id: '/pos'
+      path: '/pos'
+      fullPath: '/pos'
+      preLoaderRoute: typeof PosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ledger': {
+      id: '/ledger'
+      path: '/ledger'
+      fullPath: '/ledger'
+      preLoaderRoute: typeof LedgerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inventory': {
+      id: '/inventory'
+      path: '/inventory'
+      fullPath: '/inventory'
+      preLoaderRoute: typeof InventoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expenses': {
+      id: '/expenses'
+      path: '/expenses'
+      fullPath: '/expenses'
+      preLoaderRoute: typeof ExpensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacts': {
+      id: '/contacts'
+      path: '/contacts'
+      fullPath: '/contacts'
+      preLoaderRoute: typeof ContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bills': {
+      id: '/bills'
+      path: '/bills'
+      fullPath: '/bills'
+      preLoaderRoute: typeof BillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/backup': {
+      id: '/backup'
+      path: '/backup'
+      fullPath: '/backup'
+      preLoaderRoute: typeof BackupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +457,26 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AuditRoute: AuditRoute,
+  BackupRoute: BackupRoute,
+  BillsRoute: BillsRoute,
+  ContactsRoute: ContactsRoute,
+  DashboardRoute: DashboardRoute,
+  ExpensesRoute: ExpensesRoute,
+  HomeRoute: HomeRoute,
+  InventoryRoute: InventoryRoute,
+  LedgerRoute: LedgerRoute,
+  LoginRoute: LoginRoute,
+  PosRoute: PosRoute,
+  PriceListRoute: PriceListRoute,
+  ProductsDbRoute: ProductsDbRoute,
+  ProfitRoute: ProfitRoute,
+  PurchasesRoute: PurchasesRoute,
+  ReportsRoute: ReportsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SettingsRoute: SettingsRoute,
+  SummaryRoute: SummaryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

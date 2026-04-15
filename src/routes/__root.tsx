@@ -1,6 +1,32 @@
+// @ts-nocheck
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { AuthProvider } from "@/hooks/useAuth";
+import CustomCursor from "@/components/CustomCursor";
 
 import appCss from "../styles.css?url";
+
+const queryClient = new QueryClient();
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "PaniGhar Water Care - Qazi Enterprises" },
+      { name: "description", content: "Business management system for Qazi Enterprises - PaniGhar Water Care" },
+    ],
+    links: [
+      { rel: "stylesheet", href: appCss },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+});
 
 function NotFoundComponent() {
   return (
@@ -8,14 +34,9 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">The page you're looking for doesn't exist.</p>
         <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
+          <Link to="/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
             Go home
           </Link>
         </div>
@@ -23,32 +44,6 @@ function NotFoundComponent() {
     </div>
   );
 }
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
-  component: RootComponent,
-  notFoundComponent: NotFoundComponent,
-});
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
@@ -65,5 +60,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <AuthProvider>
+          <CustomCursor />
+          <Toaster />
+          <Sonner />
+          <Outlet />
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
 }
