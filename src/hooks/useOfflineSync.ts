@@ -81,11 +81,11 @@ function safeSet(key: string, value: any) {
 const db = supabase as any;
 
 export function useOfflineSync(): OfflineSyncState {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [isOnline, setIsOnline] = useState(typeof navigator !== 'undefined' ? navigator.onLine : true);
   const [queueLength, setQueueLength] = useState(0);
   const [syncing, setSyncing] = useState(false);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(
-    localStorage.getItem("offline_last_synced") || null
+    typeof localStorage !== 'undefined' ? localStorage.getItem("offline_last_synced") : null
   );
   const syncingRef = useRef(false);
 

@@ -182,6 +182,7 @@ const defaultSettings: AppSettings = {
 
 /** Read full settings from localStorage, merged with defaults */
 export function getAppSettings(): AppSettings {
+  if (typeof localStorage === 'undefined') return { ...defaultSettings };
   try {
     const raw = localStorage.getItem("app_settings");
     return raw ? { ...defaultSettings, ...JSON.parse(raw) } : { ...defaultSettings };
