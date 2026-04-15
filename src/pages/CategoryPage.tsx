@@ -272,7 +272,7 @@ export default function CategoryPage() {
           <h2 className="text-3xl md:text-4xl font-bold">Need Help Choosing?</h2>
           <p className="text-lg opacity-90">Our water experts will help you find the perfect solution for your needs. Free consultation available!</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:03007811479"><Button size="lg" variant="secondary" className="gap-2"><Phone className="h-4 w-4" /> Call: 0300-0317383</Button></a>
+            <a href="tel:03007811479"><Button size="lg" variant="secondary" className="gap-2"><Phone className="h-4 w-4" /> Call: 0300-7811479</Button></a>
             <a href="tel:03007811479"><Button size="lg" variant="secondary" className="gap-2"><Phone className="h-4 w-4" /> Call: 0300-7811479</Button></a>
           </div>
         </div>
