@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "@tanstack/react-router";
+
 import { supabase } from "@/integrations/supabase/customClient";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -44,7 +44,7 @@ const LOCAL_BACKUP_TABLES = [
 export default function BackupPage() {
   const { user } = useAuth();
   const { toast } = useToast();
-  const [searchParams] = useSearchParams();
+  const searchParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
   const [connected, setConnected] = useState(false);
   const [loading, setLoading] = useState(true);
   const [backingUp, setBackingUp] = useState(false);
