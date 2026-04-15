@@ -70,7 +70,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
-          <CustomCursor />
+          {/* Custom cursor removed */}
           <Toaster />
           <Sonner />
           <Outlet />
