@@ -111,7 +111,7 @@ export default function CustomCursor() {
           height: clicking ? 6 : hovering ? 14 : 10,
           backgroundColor: "var(--accent)",
           transition: "width 0.15s, height 0.15s",
-          boxShadow: "0 0 6px color-mix(in oklch, var(--accent) calc(0.5 * 100%), transparent)",
+          boxShadow: "0 0 6px color-mix(in oklch, var(--accent) 50%, transparent)",
         }}
       />
     );
@@ -128,8 +128,8 @@ export default function CustomCursor() {
           transition: "width 0.2s, height 0.2s",
         }}
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full rounded-full" style={{ backgroundColor: "var(--accent)", boxShadow: "0 0 6px color-mix(in oklch, var(--accent) calc(0.6 * 100%), transparent)" }} />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] w-full rounded-full" style={{ backgroundColor: "var(--accent)", boxShadow: "0 0 6px color-mix(in oklch, var(--accent) calc(0.6 * 100%), transparent)" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full rounded-full" style={{ backgroundColor: "var(--accent)", boxShadow: "0 0 6px color-mix(in oklch, var(--accent) 60%, transparent)" }} />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] w-full rounded-full" style={{ backgroundColor: "var(--accent)", boxShadow: "0 0 6px color-mix(in oklch, var(--accent) 60%, transparent)" }} />
       </div>
     );
   }
@@ -144,7 +144,7 @@ export default function CustomCursor() {
             width: 8,
             height: 8,
             backgroundColor: "var(--accent)",
-            boxShadow: "0 0 8px color-mix(in oklch, var(--accent) calc(0.6 * 100%), transparent)",
+            boxShadow: "0 0 8px color-mix(in oklch, var(--accent) 60%, transparent)",
           }}
         />
         <div
@@ -172,7 +172,7 @@ export default function CustomCursor() {
           width: clicking ? 6 : hovering ? 14 : 10,
           height: clicking ? 6 : hovering ? 14 : 10,
           backgroundColor: "var(--accent)",
-          boxShadow: `0 0 ${clicking ? 16 : hovering ? 24 : 12}px color-mix(in oklch, var(--accent) calc(0.8 * 100%), transparent), 0 0 ${clicking ? 30 : hovering ? 40 : 20}px color-mix(in oklch, var(--accent) calc(0.4 * 100%), transparent), 0 0 ${clicking ? 50 : hovering ? 60 : 35}px color-mix(in oklch, var(--accent) calc(0.2 * 100%), transparent)`,
+          boxShadow: `0 0 ${clicking ? 16 : hovering ? 24 : 12}px color-mix(in oklch, var(--accent) 80%, transparent), 0 0 ${clicking ? 30 : hovering ? 40 : 20}px color-mix(in oklch, var(--accent) 40%, transparent), 0 0 ${clicking ? 50 : hovering ? 60 : 35}px color-mix(in oklch, var(--accent) 20%, transparent)`,
           transition: "width 0.15s, height 0.15s, box-shadow 0.2s",
         }}
       />
