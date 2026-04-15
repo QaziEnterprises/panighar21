@@ -153,7 +153,7 @@ export default function CustomCursor() {
           style={{
             width: hovering ? 48 : 36,
             height: hovering ? 48 : 36,
-            borderColor: `color-mix(in oklch, var(--accent) calc(${hovering ? 0.8 : 0.4} * 100%), transparent)`,
+            borderColor: hovering ? `color-mix(in oklch, var(--accent) 80%, transparent)` : `color-mix(in oklch, var(--accent) 40%, transparent)`,
             transition: "width 0.3s, height 0.3s, border-color 0.3s",
           }}
         />
@@ -186,7 +186,7 @@ export default function CustomCursor() {
             width: 6 - i * 0.6,
             height: 6 - i * 0.6,
             backgroundColor: "var(--accent)",
-            boxShadow: `0 0 ${8 - i}px color-mix(in oklch, var(--accent) calc(${0.6 - i * 0.08} * 100%), transparent)`,
+            boxShadow: `0 0 ${8 - i}px color-mix(in oklch, var(--accent) ${Math.round((0.6 - i * 0.08) * 100)}%, transparent)`,
             opacity: 0,
           }}
         />
