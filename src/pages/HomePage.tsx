@@ -140,7 +140,7 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="flex items-center gap-4 pt-2">
-              <a href="tel:03000317383" className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:03007811479" className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" /> 0300-0317383
               </a>
               <a href="tel:03007811479" className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
@@ -308,7 +308,7 @@ export default function HomePage() {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold">Contact Information</h3>
               <div className="space-y-4">
-                <a href="tel:03000317383" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="tel:03007811479" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center"><Phone className="h-5 w-5 text-primary" /></div>
                   <div><div className="text-xs text-muted-foreground">Phone 1</div><div className="font-medium text-foreground">0300-0317383</div></div>
                 </a>
@@ -332,7 +332,7 @@ export default function HomePage() {
             </div>
             <Card className="p-6">
               <h3 className="text-xl font-semibold mb-4">Send Us a Message</h3>
-              <form onSubmit={(e) => { e.preventDefault(); window.open(`https://wa.me/923000317383?text=${encodeURIComponent("Hi PaniGhar, I'm interested in your water solutions.")}`, "_blank"); }} className="space-y-4">
+              <form onSubmit={(e) => { e.preventDefault(); window.open(`https://wa.me/923007811479?text=${encodeURIComponent("Hi PaniGhar, I'm interested in your water solutions.")}`, "_blank"); }} className="space-y-4">
                 <div>
                   <label className="text-sm font-medium mb-1 block">Name</label>
                   <input type="text" placeholder="Your Name" className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
