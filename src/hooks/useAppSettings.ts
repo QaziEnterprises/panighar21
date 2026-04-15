@@ -198,6 +198,19 @@ const accentPalettes: Record<string, { main: string; foreground: string }> = {
   red:    { main: "0 72% 51%",   foreground: "0 0% 100%" },
   purple: { main: "270 60% 55%", foreground: "0 0% 100%" },
   teal:   { main: "174 72% 40%", foreground: "0 0% 100%" },
+  // Soft colors
+  rose:      { main: "350 70% 65%",  foreground: "0 0% 100%" },
+  lavender:  { main: "260 50% 70%",  foreground: "0 0% 100%" },
+  peach:     { main: "20 80% 68%",   foreground: "0 0% 100%" },
+  mint:      { main: "160 50% 60%",  foreground: "0 0% 100%" },
+  sky:       { main: "200 75% 65%",  foreground: "0 0% 100%" },
+  coral:     { main: "10 75% 62%",   foreground: "0 0% 100%" },
+  lilac:     { main: "280 45% 72%",  foreground: "0 0% 100%" },
+  sage:      { main: "140 30% 55%",  foreground: "0 0% 100%" },
+  blush:     { main: "340 55% 72%",  foreground: "0 0% 100%" },
+  mauve:     { main: "300 25% 60%",  foreground: "0 0% 100%" },
+  seafoam:   { main: "170 45% 58%",  foreground: "0 0% 100%" },
+  dustyblue: { main: "210 35% 62%",  foreground: "0 0% 100%" },
 };
 
 // ── Sidebar color palettes ──
