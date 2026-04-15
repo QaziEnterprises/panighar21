@@ -10,6 +10,14 @@ import {
   Menu, X, ArrowRight, Sparkles, Globe
 } from "lucide-react";
 
+import heroImage from "@/assets/hero-water.jpg";
+import imgDomesticRO from "@/assets/products/ro-plant-domestic.jpg";
+import imgCommercialRO from "@/assets/products/ro-plant-commercial.jpg";
+import imgWaterBottle from "@/assets/products/water-bottle-19l.jpg";
+import imgBottleCaps from "@/assets/products/bottle-seals-caps.jpg";
+import imgFilters from "@/assets/products/filters-membranes.jpg";
+import imgSpareParts from "@/assets/products/spare-parts.jpg";
+
 const NAV_LINKS = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
@@ -30,12 +38,12 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  { name: "Domestic RO Plants", desc: "Home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000" },
-  { name: "Commercial RO Plants", desc: "Heavy-duty plants for businesses & factories", price: "Custom Pricing" },
-  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates" },
-  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available" },
-  { name: "Filters & Membranes", desc: "Replacement filters, membranes, and cartridges", price: "All Brands" },
-  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices" },
+  { name: "Domestic RO Plants", desc: "6-8 stage home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000", image: imgDomesticRO },
+  { name: "Commercial RO Plants", desc: "Heavy-duty 400-800 GPD plants for businesses & factories", price: "Custom Pricing", image: imgCommercialRO },
+  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates", image: imgWaterBottle },
+  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available", image: imgBottleCaps },
+  { name: "Filters & Membranes", desc: "Replacement filters, RO membranes, and cartridges", price: "All Brands", image: imgFilters },
+  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices", image: imgSpareParts },
 ];
 
 const REVIEWS = [
@@ -141,8 +149,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-              <Droplets className="h-32 w-32 md:h-44 md:w-44 text-primary/60" />
+            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <img src={heroImage} alt="PaniGhar Water Purification Systems" className="w-full h-full object-cover" width={800} height={600} />
               <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full px-3 py-1 text-xs font-bold shadow-lg">
                 ISO Certified
               </div>
@@ -220,17 +228,19 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS.map((p) => (
               <Card key={p.name} className="hover:shadow-lg transition-shadow group overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="h-40 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center mb-4">
-                    <Droplets className="h-16 w-16 text-primary/30 group-hover:text-primary/50 transition-colors" />
+                <CardContent className="p-0">
+                  <div className="h-48 overflow-hidden bg-muted">
+                    <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width={800} height={600} />
                   </div>
-                  <h3 className="font-semibold text-lg mb-1">{p.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-3">{p.desc}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-primary">{p.price}</span>
-                    <Button size="sm" variant="outline" onClick={() => scrollTo("#contact")} className="text-xs">
-                      Inquire <ChevronRight className="h-3 w-3 ml-1" />
-                    </Button>
+                  <div className="p-5">
+                    <h3 className="font-semibold text-lg mb-1">{p.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-3">{p.desc}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-primary">{p.price}</span>
+                      <Button size="sm" variant="outline" onClick={() => scrollTo("#contact")} className="text-xs">
+                        Inquire <ChevronRight className="h-3 w-3 ml-1" />
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
