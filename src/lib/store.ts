@@ -10,6 +10,7 @@ const KEYS = {
 };
 
 function get<T>(key: string): T[] {
+  if (typeof localStorage === 'undefined') return [];
   try {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
@@ -19,6 +20,7 @@ function get<T>(key: string): T[] {
 }
 
 function set<T>(key: string, data: T[]) {
+  if (typeof localStorage === 'undefined') return;
   localStorage.setItem(key, JSON.stringify(data));
 }
 

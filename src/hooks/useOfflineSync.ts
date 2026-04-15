@@ -59,6 +59,7 @@ interface OfflineMutationOpts {
 }
 
 function safeGet<T>(key: string, fallback: T): T {
+  if (typeof localStorage === 'undefined') return fallback;
   try {
     const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : fallback;
@@ -66,6 +67,7 @@ function safeGet<T>(key: string, fallback: T): T {
 }
 
 function safeSet(key: string, value: any) {
+  if (typeof localStorage === 'undefined') return;
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
