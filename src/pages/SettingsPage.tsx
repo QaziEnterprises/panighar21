@@ -620,6 +620,12 @@ export default function SettingsPage() {
                       <SelectItem value="red">🔴 Red</SelectItem>
                       <SelectItem value="purple">🟣 Purple</SelectItem>
                       <SelectItem value="teal">🫧 Teal</SelectItem>
+                      <SelectItem value="ocean">🌊 Ocean</SelectItem>
+                      <SelectItem value="sunset">🌅 Sunset</SelectItem>
+                      <SelectItem value="forest">🌲 Forest</SelectItem>
+                      <SelectItem value="galaxy">🌌 Galaxy</SelectItem>
+                      <SelectItem value="cherry">🍒 Cherry</SelectItem>
+                      <SelectItem value="aqua">💧 Aqua</SelectItem>
                       <SelectItem value="rose">🌹 Rose</SelectItem>
                       <SelectItem value="lavender">💜 Lavender</SelectItem>
                       <SelectItem value="peach">🍑 Peach</SelectItem>
@@ -630,7 +636,7 @@ export default function SettingsPage() {
                       <SelectItem value="sage">🍃 Sage</SelectItem>
                       <SelectItem value="blush">🌸 Blush</SelectItem>
                       <SelectItem value="mauve">💐 Mauve</SelectItem>
-                      <SelectItem value="seafoam">🌊 Seafoam</SelectItem>
+                      <SelectItem value="seafoam">🐚 Seafoam</SelectItem>
                       <SelectItem value="dustyblue">🔹 Dusty Blue</SelectItem>
                     </SelectContent>
                   </Select>
