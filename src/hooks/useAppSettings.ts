@@ -309,19 +309,25 @@ function applyAnimations(enabled: boolean) {
 function applyAccentColor(color: string) {
   const palette = accentPalettes[color] || accentPalettes.amber;
   const root = document.documentElement;
-  root.style.setProperty("--accent", palette.main);
-  root.style.setProperty("--accent-foreground", palette.foreground);
-  // Also update sidebar accent colors and chart-1 and ring for dark mode
-  root.style.setProperty("--sidebar-primary", palette.main);
-  root.style.setProperty("--sidebar-primary-foreground", palette.foreground);
-  root.style.setProperty("--sidebar-ring", palette.main);
-  root.style.setProperty("--chart-1", palette.main);
-  // In dark mode, primary is the accent
-  if (root.classList.contains("dark")) {
-    root.style.setProperty("--primary", palette.main);
-    root.style.setProperty("--primary-foreground", "222 47% 11%");
-    root.style.setProperty("--ring", palette.main);
-  }
+  // Apply all 4 theme colors using oklch values
+  root.style.setProperty("--accent", palette.accentOklch);
+  root.style.setProperty("--accent-foreground", "oklch(1 0 0)");
+  root.style.setProperty("--success", palette.successOklch);
+  root.style.setProperty("--success-foreground", "oklch(1 0 0)");
+  root.style.setProperty("--warning", palette.warningOklch);
+  root.style.setProperty("--warning-foreground", "oklch(1 0 0)");
+  root.style.setProperty("--chart-1", palette.primaryOklch);
+  root.style.setProperty("--chart-2", palette.accentOklch);
+  root.style.setProperty("--chart-3", palette.warningOklch);
+  root.style.setProperty("--chart-4", palette.successOklch);
+  // Sidebar colors
+  root.style.setProperty("--sidebar-primary", palette.primaryOklch);
+  root.style.setProperty("--sidebar-primary-foreground", "oklch(1 0 0)");
+  root.style.setProperty("--sidebar-ring", palette.primaryOklch);
+  // Primary + ring
+  root.style.setProperty("--primary", palette.primaryOklch);
+  root.style.setProperty("--primary-foreground", "oklch(1 0 0)");
+  root.style.setProperty("--ring", palette.primaryOklch);
 }
 
 function applySidebarColor(style: string) {
