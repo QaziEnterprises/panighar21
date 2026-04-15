@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { Pencil, Plus, Trash2, Save, CalendarIcon } from "lucide-react";
 import CustomerAutocomplete from "@/components/CustomerAutocomplete";

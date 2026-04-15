@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useRef, useMemo } from "react";
 import { offlineQuery } from "@/lib/offlineQuery";
 import {

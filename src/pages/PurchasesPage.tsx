@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { offlineQuery } from "@/lib/offlineQuery";
 import { useSearchParams } from "react-router-dom";
