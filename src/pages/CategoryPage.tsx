@@ -278,6 +278,15 @@ export default function CategoryPage() {
         </div>
       </section>
 
+      {/* Footer */}
+      <footer className="bg-foreground text-background py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm opacity-60">
+          <p>© {new Date().getFullYear()} PaniGhar Water Care Treatment Technology. All rights reserved.</p>
+          <p className="mt-2 flex items-center justify-center gap-1">
+            Made by <span className="font-semibold">MuazBinShafi</span> with <Heart className="h-4 w-4 fill-destructive text-destructive inline" /> using <span className="font-semibold">Lovable</span>
+          </p>
+        </div>
+      </footer>
 
       {/* Floating WhatsApp Button */}
       <a
