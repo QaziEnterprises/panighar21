@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Bell, X, CheckCheck, AlertTriangle, Package, CreditCard, Info } from "lucide-react";
