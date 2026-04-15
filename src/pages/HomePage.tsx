@@ -38,12 +38,12 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  { name: "Domestic RO Plants", desc: "6-8 stage home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000", image: imgDomesticRO },
-  { name: "Commercial RO Plants", desc: "Heavy-duty 400-800 GPD plants for businesses & factories", price: "Custom Pricing", image: imgCommercialRO },
-  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates", image: imgWaterBottle },
-  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available", image: imgBottleCaps },
-  { name: "Filters & Membranes", desc: "Replacement filters, RO membranes, and cartridges", price: "All Brands", image: imgFilters },
-  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices", image: imgSpareParts },
+  { name: "Domestic RO Plants", desc: "6-8 stage home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000", image: imgDomesticRO, slug: "domestic-ro-plants" },
+  { name: "Commercial RO Plants", desc: "Heavy-duty 400-800 GPD plants for businesses & factories", price: "Custom Pricing", image: imgCommercialRO, slug: "commercial-ro-plants" },
+  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates", image: imgWaterBottle, slug: "water-bottles-19l" },
+  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available", image: imgBottleCaps, slug: "bottle-seals-caps" },
+  { name: "Filters & Membranes", desc: "Replacement filters, RO membranes, and cartridges", price: "All Brands", image: imgFilters, slug: "filters-membranes" },
+  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices", image: imgSpareParts, slug: "spare-parts" },
 ];
 
 const REVIEWS = [
@@ -227,23 +227,28 @@ export default function HomePage() {
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">Quality water treatment products and accessories at the best prices.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS.map((p) => (
-              <Card key={p.name} className="hover:shadow-lg transition-shadow group overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="h-48 overflow-hidden bg-muted">
-                    <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width={800} height={600} />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-semibold text-lg mb-1">{p.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-3">{p.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-primary">{p.price}</span>
-                      <Button size="sm" variant="outline" onClick={() => scrollTo("#contact")} className="text-xs">
-                        Inquire <ChevronRight className="h-3 w-3 ml-1" />
-                      </Button>
+              <Link key={p.name} to="/category/$slug" params={{ slug: p.slug }}>
+                <Card className="hover:shadow-lg transition-all group overflow-hidden cursor-pointer hover:border-primary/30">
+                  <CardContent className="p-0">
+                    <div className="h-48 overflow-hidden bg-muted relative">
+                      <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width={800} height={600} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+                        <span className="text-background text-sm font-semibold flex items-center gap-1">View Products <ArrowRight className="h-3.5 w-3.5" /></span>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div className="p-5">
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{p.name}</h3>
+                      <p className="text-muted-foreground text-sm mb-3">{p.desc}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-bold text-primary">{p.price}</span>
+                        <span className="text-xs text-accent font-medium flex items-center gap-1">
+                          Explore <ChevronRight className="h-3 w-3" />
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
