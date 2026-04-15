@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   Package, TrendingUp, AlertTriangle, ShoppingCart, Receipt, DollarSign,
   Users, Boxes, Clock, CreditCard, ArrowRight, Sparkles, BarChart3, Wallet,

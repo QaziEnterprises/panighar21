@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useState, useEffect } from "react";
 import { offlineQuery } from "@/lib/offlineQuery";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "@tanstack/react-router";
 import { Plus, Search, X, ShoppingCart, Trash2, Save, Pencil, Eye, Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

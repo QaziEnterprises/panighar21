@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/customClient";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";

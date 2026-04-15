@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { supabase } from "@/integrations/supabase/customClient";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 
 interface LowStockProduct {
   id: string;

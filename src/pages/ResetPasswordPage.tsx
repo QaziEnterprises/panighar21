@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/customClient";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 
 export default function ResetPasswordPage() {
   const navigate = useNavigate();
