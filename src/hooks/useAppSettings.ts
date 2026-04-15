@@ -191,27 +191,62 @@ export function getAppSettings(): AppSettings {
   }
 }
 
-// ── Accent color palettes (HSL values) ──
-const accentPalettes: Record<string, { main: string; foreground: string }> = {
-  amber:  { main: "38 92% 50%",  foreground: "0 0% 100%" },
-  blue:   { main: "217 91% 60%", foreground: "0 0% 100%" },
-  green:  { main: "142 71% 45%", foreground: "0 0% 100%" },
-  red:    { main: "0 72% 51%",   foreground: "0 0% 100%" },
-  purple: { main: "270 60% 55%", foreground: "0 0% 100%" },
-  teal:   { main: "174 72% 40%", foreground: "0 0% 100%" },
-  // Soft colors
-  rose:      { main: "350 70% 65%",  foreground: "0 0% 100%" },
-  lavender:  { main: "260 50% 70%",  foreground: "0 0% 100%" },
-  peach:     { main: "20 80% 68%",   foreground: "0 0% 100%" },
-  mint:      { main: "160 50% 60%",  foreground: "0 0% 100%" },
-  sky:       { main: "200 75% 65%",  foreground: "0 0% 100%" },
-  coral:     { main: "10 75% 62%",   foreground: "0 0% 100%" },
-  lilac:     { main: "280 45% 72%",  foreground: "0 0% 100%" },
-  sage:      { main: "140 30% 55%",  foreground: "0 0% 100%" },
-  blush:     { main: "340 55% 72%",  foreground: "0 0% 100%" },
-  mauve:     { main: "300 25% 60%",  foreground: "0 0% 100%" },
-  seafoam:   { main: "170 45% 58%",  foreground: "0 0% 100%" },
-  dustyblue: { main: "210 35% 62%",  foreground: "0 0% 100%" },
+// ── Accent color palettes (oklch values for 4+ color themes) ──
+// Each palette has: primary, accent, success, warning — 4 harmonious colors
+const accentPalettes: Record<string, {
+  main: string; foreground: string;
+  primary: string; accent: string; success: string; warning: string;
+  primaryOklch: string; accentOklch: string; successOklch: string; warningOklch: string;
+}> = {
+  amber:     { main: "38 92% 50%", foreground: "0 0% 100%", primary: "38 92% 50%", accent: "25 95% 53%", success: "142 71% 45%", warning: "48 96% 53%",
+               primaryOklch: "oklch(0.78 0.18 75)", accentOklch: "oklch(0.65 0.20 45)", successOklch: "oklch(0.6 0.18 150)", warningOklch: "oklch(0.85 0.18 90)" },
+  blue:      { main: "217 91% 60%", foreground: "0 0% 100%", primary: "217 91% 60%", accent: "199 89% 48%", success: "162 73% 46%", warning: "43 96% 56%",
+               primaryOklch: "oklch(0.55 0.22 260)", accentOklch: "oklch(0.65 0.17 210)", successOklch: "oklch(0.6 0.18 165)", warningOklch: "oklch(0.82 0.17 85)" },
+  green:     { main: "142 71% 45%", foreground: "0 0% 100%", primary: "142 71% 45%", accent: "168 76% 42%", success: "120 65% 50%", warning: "84 81% 44%",
+               primaryOklch: "oklch(0.6 0.18 150)", accentOklch: "oklch(0.62 0.15 175)", successOklch: "oklch(0.65 0.2 140)", warningOklch: "oklch(0.7 0.17 120)" },
+  red:       { main: "0 72% 51%", foreground: "0 0% 100%", primary: "0 72% 51%", accent: "340 82% 52%", success: "16 85% 57%", warning: "45 93% 47%",
+               primaryOklch: "oklch(0.55 0.22 25)", accentOklch: "oklch(0.6 0.22 350)", successOklch: "oklch(0.7 0.18 40)", warningOklch: "oklch(0.8 0.17 80)" },
+  purple:    { main: "270 60% 55%", foreground: "0 0% 100%", primary: "270 60% 55%", accent: "290 65% 50%", success: "240 55% 60%", warning: "310 60% 58%",
+               primaryOklch: "oklch(0.55 0.2 300)", accentOklch: "oklch(0.5 0.22 320)", successOklch: "oklch(0.55 0.18 270)", warningOklch: "oklch(0.62 0.2 340)" },
+  teal:      { main: "174 72% 40%", foreground: "0 0% 100%", primary: "174 72% 40%", accent: "190 80% 42%", success: "160 65% 45%", warning: "140 55% 50%",
+               primaryOklch: "oklch(0.6 0.14 185)", accentOklch: "oklch(0.58 0.14 200)", successOklch: "oklch(0.62 0.14 170)", warningOklch: "oklch(0.65 0.13 155)" },
+  // Multi-color themed combos
+  ocean:     { main: "200 80% 50%", foreground: "0 0% 100%", primary: "200 80% 50%", accent: "170 70% 45%", success: "155 65% 50%", warning: "220 75% 60%",
+               primaryOklch: "oklch(0.58 0.17 230)", accentOklch: "oklch(0.62 0.14 185)", successOklch: "oklch(0.65 0.14 170)", warningOklch: "oklch(0.6 0.15 255)" },
+  sunset:    { main: "15 85% 55%", foreground: "0 0% 100%", primary: "15 85% 55%", accent: "340 75% 55%", success: "45 90% 50%", warning: "30 90% 60%",
+               primaryOklch: "oklch(0.65 0.2 35)", accentOklch: "oklch(0.6 0.2 350)", successOklch: "oklch(0.82 0.17 80)", warningOklch: "oklch(0.75 0.18 55)" },
+  forest:    { main: "150 60% 40%", foreground: "0 0% 100%", primary: "150 60% 40%", accent: "90 50% 45%", success: "120 55% 50%", warning: "50 70% 55%",
+               primaryOklch: "oklch(0.55 0.14 160)", accentOklch: "oklch(0.6 0.12 130)", successOklch: "oklch(0.62 0.15 140)", warningOklch: "oklch(0.75 0.15 90)" },
+  galaxy:    { main: "265 70% 55%", foreground: "0 0% 100%", primary: "265 70% 55%", accent: "200 80% 55%", success: "320 65% 55%", warning: "180 60% 50%",
+               primaryOklch: "oklch(0.52 0.2 290)", accentOklch: "oklch(0.6 0.17 230)", successOklch: "oklch(0.6 0.18 340)", warningOklch: "oklch(0.62 0.13 195)" },
+  cherry:    { main: "350 80% 50%", foreground: "0 0% 100%", primary: "350 80% 50%", accent: "320 70% 55%", success: "10 75% 60%", warning: "0 65% 65%",
+               primaryOklch: "oklch(0.55 0.22 10)", accentOklch: "oklch(0.58 0.2 340)", successOklch: "oklch(0.68 0.18 30)", warningOklch: "oklch(0.7 0.16 15)" },
+  aqua:      { main: "185 75% 45%", foreground: "0 0% 100%", primary: "185 75% 45%", accent: "210 70% 55%", success: "160 65% 48%", warning: "195 80% 40%",
+               primaryOklch: "oklch(0.62 0.13 195)", accentOklch: "oklch(0.6 0.15 240)", successOklch: "oklch(0.63 0.13 175)", warningOklch: "oklch(0.56 0.12 205)" },
+  rose:      { main: "350 70% 65%", foreground: "0 0% 100%", primary: "350 70% 65%", accent: "330 60% 60%", success: "10 65% 68%", warning: "320 50% 55%",
+               primaryOklch: "oklch(0.7 0.15 10)", accentOklch: "oklch(0.65 0.15 350)", successOklch: "oklch(0.73 0.13 25)", warningOklch: "oklch(0.6 0.14 340)" },
+  lavender:  { main: "260 50% 70%", foreground: "0 0% 100%", primary: "260 50% 70%", accent: "280 45% 65%", success: "240 45% 68%", warning: "300 40% 62%",
+               primaryOklch: "oklch(0.7 0.12 280)", accentOklch: "oklch(0.65 0.13 300)", successOklch: "oklch(0.68 0.11 260)", warningOklch: "oklch(0.63 0.12 320)" },
+  peach:     { main: "20 80% 68%", foreground: "0 0% 100%", primary: "20 80% 68%", accent: "35 75% 62%", success: "10 70% 70%", warning: "45 80% 58%",
+               primaryOklch: "oklch(0.75 0.14 45)", accentOklch: "oklch(0.72 0.14 65)", successOklch: "oklch(0.77 0.12 30)", warningOklch: "oklch(0.73 0.15 80)" },
+  mint:      { main: "160 50% 60%", foreground: "0 0% 100%", primary: "160 50% 60%", accent: "180 50% 55%", success: "140 45% 58%", warning: "170 55% 52%",
+               primaryOklch: "oklch(0.7 0.1 170)", accentOklch: "oklch(0.65 0.1 190)", successOklch: "oklch(0.68 0.1 155)", warningOklch: "oklch(0.63 0.11 180)" },
+  sky:       { main: "200 75% 65%", foreground: "0 0% 100%", primary: "200 75% 65%", accent: "215 70% 60%", success: "185 65% 58%", warning: "225 60% 62%",
+               primaryOklch: "oklch(0.7 0.12 225)", accentOklch: "oklch(0.65 0.13 240)", successOklch: "oklch(0.67 0.11 200)", warningOklch: "oklch(0.65 0.12 250)" },
+  coral:     { main: "10 75% 62%", foreground: "0 0% 100%", primary: "10 75% 62%", accent: "25 80% 58%", success: "0 65% 65%", warning: "35 85% 55%",
+               primaryOklch: "oklch(0.68 0.17 30)", accentOklch: "oklch(0.7 0.17 50)", successOklch: "oklch(0.7 0.14 15)", warningOklch: "oklch(0.72 0.17 65)" },
+  lilac:     { main: "280 45% 72%", foreground: "0 0% 100%", primary: "280 45% 72%", accent: "260 40% 68%", success: "300 40% 70%", warning: "250 35% 65%",
+               primaryOklch: "oklch(0.72 0.11 300)", accentOklch: "oklch(0.68 0.1 280)", successOklch: "oklch(0.7 0.1 320)", warningOklch: "oklch(0.66 0.1 270)" },
+  sage:      { main: "140 30% 55%", foreground: "0 0% 100%", primary: "140 30% 55%", accent: "120 25% 50%", success: "160 35% 52%", warning: "100 30% 50%",
+               primaryOklch: "oklch(0.62 0.08 155)", accentOklch: "oklch(0.58 0.07 140)", successOklch: "oklch(0.6 0.09 170)", warningOklch: "oklch(0.57 0.08 125)" },
+  blush:     { main: "340 55% 72%", foreground: "0 0% 100%", primary: "340 55% 72%", accent: "350 50% 68%", success: "330 45% 70%", warning: "0 50% 65%",
+               primaryOklch: "oklch(0.72 0.12 350)", accentOklch: "oklch(0.7 0.12 10)", successOklch: "oklch(0.71 0.11 340)", warningOklch: "oklch(0.68 0.13 15)" },
+  mauve:     { main: "300 25% 60%", foreground: "0 0% 100%", primary: "300 25% 60%", accent: "280 30% 58%", success: "320 25% 62%", warning: "270 25% 55%",
+               primaryOklch: "oklch(0.62 0.08 320)", accentOklch: "oklch(0.6 0.09 300)", successOklch: "oklch(0.64 0.08 340)", warningOklch: "oklch(0.58 0.09 290)" },
+  seafoam:   { main: "170 45% 58%", foreground: "0 0% 100%", primary: "170 45% 58%", accent: "190 50% 52%", success: "155 40% 55%", warning: "200 45% 50%",
+               primaryOklch: "oklch(0.65 0.1 180)", accentOklch: "oklch(0.6 0.11 200)", successOklch: "oklch(0.63 0.1 165)", warningOklch: "oklch(0.58 0.11 210)" },
+  dustyblue: { main: "210 35% 62%", foreground: "0 0% 100%", primary: "210 35% 62%", accent: "225 40% 58%", success: "195 35% 58%", warning: "240 35% 60%",
+               primaryOklch: "oklch(0.65 0.08 235)", accentOklch: "oklch(0.6 0.09 250)", successOklch: "oklch(0.62 0.08 215)", warningOklch: "oklch(0.6 0.09 260)" },
 };
 
 // ── Sidebar color palettes ──
