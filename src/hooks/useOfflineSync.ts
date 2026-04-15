@@ -59,6 +59,7 @@ interface OfflineMutationOpts {
 }
 
 function safeGet<T>(key: string, fallback: T): T {
+  if (typeof localStorage === 'undefined') return fallback;
   try {
     const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : fallback;
@@ -66,6 +67,7 @@ function safeGet<T>(key: string, fallback: T): T {
 }
 
 function safeSet(key: string, value: any) {
+  if (typeof localStorage === 'undefined') return;
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
@@ -81,11 +83,11 @@ function safeSet(key: string, value: any) {
 const db = supabase as any;
 
 export function useOfflineSync(): OfflineSyncState {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [isOnline, setIsOnline] = useState(typeof navigator !== 'undefined' ? navigator.onLine : true);
   const [queueLength, setQueueLength] = useState(0);
   const [syncing, setSyncing] = useState(false);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(
-    localStorage.getItem("offline_last_synced") || null
+    typeof localStorage !== 'undefined' ? localStorage.getItem("offline_last_synced") : null
   );
   const syncingRef = useRef(false);
 

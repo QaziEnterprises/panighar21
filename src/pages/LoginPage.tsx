@@ -38,7 +38,7 @@ async function clearServerAttempts(email: string) {
 }
 
 export default function LoginPage() {
-  const savedCreds = (() => { try { const s = localStorage.getItem("remembered_user"); return s ? JSON.parse(s) : null; } catch { return null; } })();
+  const savedCreds = (() => { if (typeof localStorage === 'undefined') return null; try { const s = localStorage.getItem("remembered_user"); return s ? JSON.parse(s) : null; } catch { return null; } })();
   const { signIn } = useAuth();
   const [email, setEmail] = useState(savedCreds?.email || "");
   const [password, setPassword] = useState(savedCreds?.password || "");

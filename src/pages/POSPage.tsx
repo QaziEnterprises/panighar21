@@ -60,6 +60,7 @@ export default function POSPage() {
   const [mobileCartOpen, setMobileCartOpen] = useState(false);
   const [scannerOpen, setScannerOpen] = useState(false);
   const [pinnedIds, setPinnedIds] = useState<Set<string>>(() => {
+    if (typeof localStorage === 'undefined') return new Set<string>();
     try { const saved = localStorage.getItem("pos_pinned_products"); return saved ? new Set(JSON.parse(saved)) : new Set<string>(); } catch { return new Set<string>(); }
   });
   const printRef = useRef<HTMLDivElement>(null);

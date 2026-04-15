@@ -10,6 +10,7 @@ const KEYS = {
 };
 
 function get<T>(key: string): T[] {
+  if (typeof localStorage === 'undefined') return [];
   try {
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
@@ -19,6 +20,7 @@ function get<T>(key: string): T[] {
 }
 
 function set<T>(key: string, data: T[]) {
+  if (typeof localStorage === 'undefined') return;
   localStorage.setItem(key, JSON.stringify(data));
 }
 
@@ -55,6 +57,7 @@ const EXPENSE_CATEGORIES = [
 ];
 
 async function seedCategories() {
+  if (typeof localStorage === 'undefined') return;
   const seeded = localStorage.getItem("categories_seeded_v1");
   if (seeded) return;
 
@@ -83,6 +86,7 @@ async function seedCategories() {
 
 // Clear old bundled data - user will upload fresh data
 export async function initializeDefaultData() {
+  if (typeof localStorage === 'undefined') return;
   // Clear previous ledger data as requested
   const cleared = localStorage.getItem("ledger_cleared_v2");
   if (!cleared) {
