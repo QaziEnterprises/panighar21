@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/useAuth";
-import CustomCursor from "@/components/CustomCursor";
+// CustomCursor removed - was causing SSR issues
 
 import appCss from "../styles.css?url";
 
