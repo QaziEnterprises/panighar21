@@ -189,7 +189,7 @@ export default function CategoryPage() {
               </div>
               <div className="flex flex-wrap gap-3 pt-4">
                 <a href="tel:03007811479">
-                  <Button size="lg" className="gap-2"><Phone className="h-4 w-4" /> Call Now: 0300-0317383</Button>
+                  <Button size="lg" className="gap-2"><Phone className="h-4 w-4" /> Call Now: 0300-7811479</Button>
                 </a>
                 <a href={`https://wa.me/923007811479?text=${encodeURIComponent(`Hi PaniGhar, I'm interested in ${category.title}.`)}`} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="gap-2">WhatsApp Inquiry <ArrowRight className="h-4 w-4" /></Button>
