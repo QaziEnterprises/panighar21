@@ -620,6 +620,18 @@ export default function SettingsPage() {
                       <SelectItem value="red">🔴 Red</SelectItem>
                       <SelectItem value="purple">🟣 Purple</SelectItem>
                       <SelectItem value="teal">🫧 Teal</SelectItem>
+                      <SelectItem value="rose">🌹 Rose</SelectItem>
+                      <SelectItem value="lavender">💜 Lavender</SelectItem>
+                      <SelectItem value="peach">🍑 Peach</SelectItem>
+                      <SelectItem value="mint">🌿 Mint</SelectItem>
+                      <SelectItem value="sky">☁️ Sky</SelectItem>
+                      <SelectItem value="coral">🪸 Coral</SelectItem>
+                      <SelectItem value="lilac">🪻 Lilac</SelectItem>
+                      <SelectItem value="sage">🍃 Sage</SelectItem>
+                      <SelectItem value="blush">🌸 Blush</SelectItem>
+                      <SelectItem value="mauve">💐 Mauve</SelectItem>
+                      <SelectItem value="seafoam">🌊 Seafoam</SelectItem>
+                      <SelectItem value="dustyblue">🔹 Dusty Blue</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
