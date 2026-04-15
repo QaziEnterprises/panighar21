@@ -10,6 +10,14 @@ import {
   Menu, X, ArrowRight, Sparkles, Globe
 } from "lucide-react";
 
+import heroImage from "@/assets/hero-water.jpg";
+import imgDomesticRO from "@/assets/products/ro-plant-domestic.jpg";
+import imgCommercialRO from "@/assets/products/ro-plant-commercial.jpg";
+import imgWaterBottle from "@/assets/products/water-bottle-19l.jpg";
+import imgBottleCaps from "@/assets/products/bottle-seals-caps.jpg";
+import imgFilters from "@/assets/products/filters-membranes.jpg";
+import imgSpareParts from "@/assets/products/spare-parts.jpg";
+
 const NAV_LINKS = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
@@ -30,12 +38,12 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  { name: "Domestic RO Plants", desc: "Home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000" },
-  { name: "Commercial RO Plants", desc: "Heavy-duty plants for businesses & factories", price: "Custom Pricing" },
-  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates" },
-  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available" },
-  { name: "Filters & Membranes", desc: "Replacement filters, membranes, and cartridges", price: "All Brands" },
-  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices" },
+  { name: "Domestic RO Plants", desc: "6-8 stage home reverse osmosis systems for pure drinking water", price: "Starting from Rs. 15,000", image: imgDomesticRO },
+  { name: "Commercial RO Plants", desc: "Heavy-duty 400-800 GPD plants for businesses & factories", price: "Custom Pricing", image: imgCommercialRO },
+  { name: "Water Bottles (19L)", desc: "Empty 19-liter reusable water bottles", price: "Wholesale Rates", image: imgWaterBottle },
+  { name: "Bottle Seals & Caps", desc: "Heat-shrink seals and caps for water bottles", price: "Bulk Available", image: imgBottleCaps },
+  { name: "Filters & Membranes", desc: "Replacement filters, RO membranes, and cartridges", price: "All Brands", image: imgFilters },
+  { name: "Plant Spare Parts", desc: "Pumps, housings, fittings & all accessories", price: "Best Prices", image: imgSpareParts },
 ];
 
 const REVIEWS = [
