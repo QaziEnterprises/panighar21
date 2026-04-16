@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { LayoutDashboard, Package, Users, Shield, LogOut, UserCircle, ShoppingCart, Receipt, CreditCard, Menu, X, Boxes, BarChart3, FileText, CalendarDays, BookOpen, ClipboardList, Cloud, Settings, Wifi, WifiOff, RefreshCw } from "lucide-react";
+import { LayoutDashboard, Package, Users, Shield, LogOut, UserCircle, ShoppingCart, Receipt, CreditCard, Menu, X, Boxes, BarChart3, FileText, CalendarDays, BookOpen, ClipboardList, Cloud, Settings, Wifi, WifiOff, RefreshCw, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     { to: "/purchases", icon: ShoppingCart, label: "Purchases", adminOnly: false },
     { to: "/expenses", icon: Receipt, label: "Expenses", adminOnly: false },
     { to: "/reports", icon: BarChart3, label: "Daily Reports", adminOnly: false },
+    { to: "/product-analytics", icon: TrendingUp, label: "Product Analytics", adminOnly: false },
     { to: "/summary", icon: CalendarDays, label: "Monthly Summary", adminOnly: false },
     { to: "/backup", icon: Cloud, label: "Backup", adminOnly: false },
     { to: "/settings", icon: Settings, label: "Settings", adminOnly: false },
