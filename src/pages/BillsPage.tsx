@@ -113,6 +113,24 @@ export default function BillsPage() {
           offlineQuery<SaleTransaction>("sale_transactions", { order: "created_at", ascending: false }),
           offlineQuery<Customer>("contacts", { select: "id, name, phone", eq: { type: "customer" } }),
         ]);
+        // Auto-generate invoice numbers for bills missing them
+        const toUpdate: SaleTransaction[] = [];
+        const maxInv = s.reduce((max, sale) => {
+          const match = sale.invoice_no?.match(/INV-(\d+)/);
+          return match ? Math.max(max, parseInt(match[1])) : max;
+        }, 0);
+        let nextNum = maxInv + 1;
+        for (const sale of s) {
+          if (!sale.invoice_no) {
+            const newInv = `INV-${String(nextNum++).padStart(5, "0")}`;
+            sale.invoice_no = newInv;
+            toUpdate.push(sale);
+          }
+        }
+        // Update in database
+        for (const sale of toUpdate) {
+          supabase.from("sale_transactions").update({ invoice_no: sale.invoice_no }).eq("id", sale.id).then(() => {});
+        }
         setSales(s);
         setCustomers(c);
       } catch (e) {
