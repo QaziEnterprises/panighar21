@@ -113,14 +113,17 @@ export default function BillsPage() {
           offlineQuery<SaleTransaction>("sale_transactions", { order: "created_at", ascending: false }),
           offlineQuery<Customer>("contacts", { select: "id, name, phone", eq: { type: "customer" } }),
         ]);
-        // Auto-generate invoice numbers for bills missing them
+        // Auto-generate invoice numbers for bills missing them (oldest first)
         const toUpdate: SaleTransaction[] = [];
-        const maxInv = s.reduce((max, sale) => {
-          const match = sale.invoice_no?.match(/INV-(\d+)/);
-          return match ? Math.max(max, parseInt(match[1])) : max;
-        }, 0);
-        let nextNum = maxInv + 1;
-        for (const sale of s) {
+        const sorted = [...s].sort((a, b) => a.created_at.localeCompare(b.created_at));
+        let nextNum = 1;
+        for (const sale of sorted) {
+          if (sale.invoice_no) {
+            const match = sale.invoice_no.match(/INV-(\d+)/);
+            if (match) nextNum = Math.max(nextNum, parseInt(match[1]) + 1);
+          }
+        }
+        for (const sale of sorted) {
           if (!sale.invoice_no) {
             const newInv = `INV-${String(nextNum++).padStart(5, "0")}`;
             sale.invoice_no = newInv;
