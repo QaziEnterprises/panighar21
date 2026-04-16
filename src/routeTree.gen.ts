@@ -16,6 +16,7 @@ import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as PurchasesRouteImport } from './routes/purchases'
 import { Route as ProfitRouteImport } from './routes/profit'
 import { Route as ProductsDbRouteImport } from './routes/products-db'
+import { Route as ProductAnalyticsRouteImport } from './routes/product-analytics'
 import { Route as PriceListRouteImport } from './routes/price-list'
 import { Route as PosRouteImport } from './routes/pos'
 import { Route as LoginRouteImport } from './routes/login'
@@ -65,6 +66,11 @@ const ProfitRoute = ProfitRouteImport.update({
 const ProductsDbRoute = ProductsDbRouteImport.update({
   id: '/products-db',
   path: '/products-db',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductAnalyticsRoute = ProductAnalyticsRouteImport.update({
+  id: '/product-analytics',
+  path: '/product-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PriceListRoute = PriceListRouteImport.update({
@@ -158,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/pos': typeof PosRoute
   '/price-list': typeof PriceListRoute
+  '/product-analytics': typeof ProductAnalyticsRoute
   '/products-db': typeof ProductsDbRoute
   '/profit': typeof ProfitRoute
   '/purchases': typeof PurchasesRoute
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/pos': typeof PosRoute
   '/price-list': typeof PriceListRoute
+  '/product-analytics': typeof ProductAnalyticsRoute
   '/products-db': typeof ProductsDbRoute
   '/profit': typeof ProfitRoute
   '/purchases': typeof PurchasesRoute
@@ -207,6 +215,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/pos': typeof PosRoute
   '/price-list': typeof PriceListRoute
+  '/product-analytics': typeof ProductAnalyticsRoute
   '/products-db': typeof ProductsDbRoute
   '/profit': typeof ProfitRoute
   '/purchases': typeof PurchasesRoute
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/pos'
     | '/price-list'
+    | '/product-analytics'
     | '/products-db'
     | '/profit'
     | '/purchases'
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/pos'
     | '/price-list'
+    | '/product-analytics'
     | '/products-db'
     | '/profit'
     | '/purchases'
@@ -281,6 +292,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/pos'
     | '/price-list'
+    | '/product-analytics'
     | '/products-db'
     | '/profit'
     | '/purchases'
@@ -306,6 +318,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PosRoute: typeof PosRoute
   PriceListRoute: typeof PriceListRoute
+  ProductAnalyticsRoute: typeof ProductAnalyticsRoute
   ProductsDbRoute: typeof ProductsDbRoute
   ProfitRoute: typeof ProfitRoute
   PurchasesRoute: typeof PurchasesRoute
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       path: '/products-db'
       fullPath: '/products-db'
       preLoaderRoute: typeof ProductsDbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-analytics': {
+      id: '/product-analytics'
+      path: '/product-analytics'
+      fullPath: '/product-analytics'
+      preLoaderRoute: typeof ProductAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/price-list': {
@@ -490,6 +510,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PosRoute: PosRoute,
   PriceListRoute: PriceListRoute,
+  ProductAnalyticsRoute: ProductAnalyticsRoute,
   ProductsDbRoute: ProductsDbRoute,
   ProfitRoute: ProfitRoute,
   PurchasesRoute: PurchasesRoute,
