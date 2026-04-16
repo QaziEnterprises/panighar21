@@ -31,7 +31,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     { to: "/backup", icon: Cloud, label: "Backup", adminOnly: false },
     { to: "/settings", icon: Settings, label: "Settings", adminOnly: false },
     { to: "/ledger", icon: BookOpen, label: "Customer Ledger", adminOnly: false },
-    { to: "/audit", icon: ClipboardList, label: "Audit Trail", adminOnly: true },
+    // audit trail removed
     { to: "/admin", icon: Shield, label: "Admin Panel", adminOnly: true },
   ];
 
